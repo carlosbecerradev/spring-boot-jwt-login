@@ -28,7 +28,7 @@ public class MailService {
 			messageHelper.setFrom("cinewolke@gmail.com");
 			messageHelper.setTo(notificationEmail.getRecipient());
 			messageHelper.setSubject(notificationEmail.getSubject());
-			messageHelper.setText(notificationEmail.getBody());			
+			messageHelper.setText(mailContentBuilder.build(notificationEmail.getBody()));			
 		};
 		
 		try {
