@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.springredditclone.dto.LoginRequest;
 import com.example.springredditclone.dto.RegisterRequest;
 import com.example.springredditclone.service.AuthService;
 
@@ -33,6 +34,11 @@ public class AuthController {
 		authService.verifyAccount(token);
 		return new ResponseEntity<>("Account Activated Successfully",
 				HttpStatus.OK);
+	}
+	
+	@PostMapping("/login")
+	public void login(@RequestBody LoginRequest loginRequest) {
+		authService.login(loginRequest);
 	}
 	
 }
